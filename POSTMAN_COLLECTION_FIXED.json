@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "ai-career-guide-fixed",
+		"name": "AI Career Guide API - Fixed",
+		"description": "Postman collection for AI Career Guide API - بدون مشاكل",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "🔐 Authentication",
+			"item": [
+				{
+					"name": "Test API Connection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/test-api",
+							"host": ["{{base_url}}"],
+							"path": ["test-api"]
+						},
+						"description": "اختبار الاتصال بالـ API"
+					}
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": ["{{base_url}}"],
+							"path": ["register"]
+						},
+						"description": "تسجيل مستخدم جديد"
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": ["{{base_url}}"],
+							"path": ["login"]
+						},
+						"description": "تسجيل دخول المستخدم"
+					}
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": ["{{base_url}}"],
+							"path": ["logout"]
+						},
+						"description": "تسجيل خروج المستخدم"
+					}
+				}
+			]
+		},
+		{
+			"name": "💬 Chat Messages",
+			"item": [
+				{
+					"name": "Get All Chat Messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/chat-messages",
+							"host": ["{{base_url}}"],
+							"path": ["chat-messages"]
+						},
+						"description": "جلب جميع الرسائل"
+					}
+				},
+				{
+					"name": "Create Chat Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"مرحباً، أحتاج نصائح مهنية!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/chat-messages",
+							"host": ["{{base_url}}"],
+							"path": ["chat-messages"]
+						},
+						"description": "إنشاء رسالة جديدة"
+					}
+				},
+				{
+					"name": "Get Chat Message by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/chat-messages/1",
+							"host": ["{{base_url}}"],
+							"path": ["chat-messages", "1"]
+						},
+						"description": "جلب رسالة محددة"
+					}
+				},
+				{
+					"name": "Update Chat Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"رسالة محدثة\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/chat-messages/1",
+							"host": ["{{base_url}}"],
+							"path": ["chat-messages", "1"]
+						},
+						"description": "تحديث رسالة موجودة"
+					}
+				},
+				{
+					"name": "Delete Chat Message",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/chat-messages/1",
+							"host": ["{{base_url}}"],
+							"path": ["chat-messages", "1"]
+						},
+						"description": "حذف رسالة"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api",
+			"description": "رابط الـ API الأساسي"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"description": "توكن الوصول (يتم ملؤه يدوياً بعد تسجيل الدخول)"
+		}
+	]
+}

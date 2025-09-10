@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "ai-career-guide-api-collection",
+		"name": "AI Career Guide API",
+		"description": "Complete API collection for testing AI Career Guide system endpoints including authentication, chat messages, and user management.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345678"
+	},
+	"item": [
+		{
+			"name": "🔐 Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test User\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Register a new user account"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Login with existing user credentials"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						},
+						"description": "Logout user and invalidate token"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication endpoints for user registration, login, and logout"
+		},
+		{
+			"name": "💬 Chat Messages",
+			"item": [
+				{
+					"name": "Get All Chat Messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/chat-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"chat-messages"
+							]
+						},
+						"description": "Retrieve all chat messages for authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Chat Message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Hello, I need career advice!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/chat-messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"chat-messages"
+							]
+						},
+						"description": "Create a new chat message"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Chat Message by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/chat-messages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"chat-messages",
+								"1"
+							]
+						},
+						"description": "Retrieve a specific chat message by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Chat Message",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"Updated message content\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/chat-messages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"chat-messages",
+								"1"
+							]
+						},
+						"description": "Update an existing chat message"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Chat Message",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/chat-messages/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"chat-messages",
+								"1"
+							]
+						},
+						"description": "Delete a chat message"
+					},
+					"response": []
+				}
+			],
+			"description": "Chat message management endpoints (CRUD operations)"
+		},
+		{
+			"name": "🧪 Testing",
+			"item": [
+				{
+					"name": "Test API Connection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/test-api",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"test-api"
+							]
+						},
+						"description": "Test if the API is working and accessible"
+					},
+					"response": []
+				}
+			],
+			"description": "Testing endpoints to verify API functionality"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Auto-save access token from login response",
+					"if (pm.response.code === 200 && pm.request.url.path.includes('login')) {",
+					"    const response = pm.response.json();",
+					"    if (response.access_token) {",
+					"        pm.environment.set('access_token', response.access_token);",
+					"        console.log('Access token saved:', response.access_token);",
+					"    }",
+					"    if (response.user) {",
+					"        pm.environment.set('user_id', response.user.id);",
+					"        console.log('User ID saved:', response.user.id);",
+					"    }",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string",
+			"description": "Base URL for the Laravel API server"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string",
+			"description": "Bearer token for authenticated requests (auto-filled after login)"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string",
+			"description": "Current user ID (auto-filled after login)"
+		}
+	]
+}
