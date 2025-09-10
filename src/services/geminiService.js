@@ -31,39 +31,65 @@ export class GeminiCareerService {
       .map(([id, answer]) => `Q: ${answer.question}\nA: ${answer.selectedOption}`)
       .join('\n\n');
 
-    return `You are an AI career advisor. Based on the following user responses, provide a structured career recommendation.
+    return `You are an expert career mentor. 
+Your task is to create a structured learning roadmap for becoming a successful $careerTitle. 
 
-User Responses:
-${userAnswers}
+⚠ Follow these rules STRICTLY:
+- Output MUST contain exactly 3 levels: Beginner, Intermediate, Advanced.
+- Each level MUST have 3 sections: Topics, Resources, Projects.
+- Each section MUST contain EXACTLY 3 numbered items.
+- Do NOT skip or merge any section.
+- Use the exact headings and format as shown below.
 
-Format your answer exactly like this:
+## Beginner Level
+Topics:
+1. First fundamental concept
+2. Second fundamental concept  
+3. Third fundamental concept
 
-## Recommended Career Category
-[Write the broad career field here, e.g.,"Business & Commerce" instead of just "Accounting" , "Software Engineering" instead of just "Frontend Developer", etc]
+Resources:
+1. Free online course or tutorial link
+2. Documentation or guide link
+3. Practice website or tool link
 
-## Why This Career Category Fits You
-[Explain briefly why this general field suits the user's answers]
+Projects:
+1. Simple beginner project
+2. Another beginner project
+3. Third practice project
 
-## Possible Specializations & Fit Percentage
-[List top 3 subfields under this career category, and provide a percentage that shows how well the user matches each. 
-Example:
-- Frontend Development – 80%
-- Backend Development – 70%
-- Data Engineering – 65% 
-]
+## Intermediate Level  
+Topics:
+1. More advanced concept
+2. Second intermediate concept
+3. Third intermediate concept
 
-## Required Core Skills
-[List 5-7 foundational skills needed across this career category]
+Resources:
+1. Intermediate course link
+2. Advanced tutorial link
+3. Professional documentation link
 
-## Steps to Get Started
-[Provide 3-5 practical steps the user should take to begin exploring this field]
+Projects:
+1. Medium complexity project
+2. Real-world application project
+3. Portfolio project
 
-## Additional Advice
-[Provide tips, motivation, and encouragement for exploring the specializations that best match the user's profile]
+## Advanced Level
+Topics:
+1. Expert level concept
+2. Professional best practices
+3. Industry standards
 
-## Alternative Career Paths
-[List 2-3 alternative career paths that might also suit the user's profile with brief explanations]
+Resources:
+1. Expert level course
+2. Professional certification link
+3. Industry documentation
 
+Projects:
+1. Advanced real-world project
+2. Open source contribution
+3. Professional portfolio project
+
+⚠ If you cannot provide a real link, still write a placeholder like (Resource link here).
 
 `;
   } 
