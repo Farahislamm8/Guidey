@@ -62,8 +62,11 @@ Example:
 [Provide tips, motivation, and encouragement for exploring the specializations that best match the user's profile]
 
 ## Alternative Career Paths
-[List 2-3 alternative career paths that might also suit the user's profile with brief explanations]`;
-  } // ✅ هنا اتقفلت buildPrompt
+[List 2-3 alternative career paths that might also suit the user's profile with brief explanations]
+
+
+`;
+  } 
 
   parseResponse(text) {
     try {
